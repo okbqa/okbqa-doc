@@ -1,0 +1,9 @@
+- title: Documentation
+  docs:
+  - overview/v1
+  - template-generation-module/v1
+  - disambiguation-module/v1
+  - query-generation-module/v1
+  - answer-generation-module/v1
+  - control-module/v2
+  - evaluation-module/v1
