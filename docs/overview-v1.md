@@ -20,13 +20,13 @@ Several types of architecture can be envisaged for QA. We assumed the QA process
 Overall, 8 modules were specified as integral parts of the QA process.
 
 * Core modules
-  * Template Generation Module (TGM): A TGM is responsible for analyzing a question in natural language to produce so called pseudo queries which determine the skeleton of SPARQL queries to be produced.
-  * Disambiguation Module (DM): A DM is responsible for finding the URIs of the components of pesudo queries.
-  * Query Generation Module (QGM): A QGM is responsible for producing the final SPARQL queries to be submitted to endpoints.
-  * Answer Generation Module (AGM): A AGM is responsible for consulting SPARQL end-points to get the answers.
+  * [Template Generation Module (TGM)]({{ site.baseurl }}/template-generation-module/v1/): A TGM is responsible for analyzing a question in natural language to produce so called pseudo queries which determine the skeleton of SPARQL queries to be produced.
+  * [Disambiguation Module (DM)]({{ site.baseurl }}/disambiguation-module/v1/): A DM is responsible for finding the URIs of the components of pesudo queries.
+  * [Query Generation Module (QGM)]({{ site.baseurl }}/query-generation-module/v1/): A QGM is responsible for producing the final SPARQL queries to be submitted to endpoints.
+  * [Answer Generation Module (AGM)]({{ site.baseurl }}/answer-generation-module/v1/): A AGM is responsible for consulting SPARQL end-points to get the answers.
 * System modules
-  * Control Module (CM): The workflow of a QA process is defined by a control module. On excution, a control module takes in a question in natural language, connects the components in the workflow to produce the answer to the question.
-  * Evaluation Module (EM): An evaluation module execute runs a contol module over a benchmark data set, and reports the performance of the QA process against the gold answers encoded in the data set.
+  * [Control Module (CM)]({{ site.baseurl }}/control-module/v2/): The workflow of a QA process is defined by a control module. On excution, a control module takes in a question in natural language, connects the components in the workflow to produce the answer to the question.
+  * [Evaluation Module (EM)]({{ site.baseurl }}/evaluation-module/v1/): An evaluation module execute runs a contol module over a benchmark data set, and reports the performance of the QA process against the gold answers encoded in the data set.
 * U/I modules
   * Input Guide module (IGM): A IGM may interact with a user to help or control the input questions.
   * Rendering module (RM): A RM may render the raw answers, a list of URIs or literals, to make them easier to read.
