@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: doc
 title: Query Generation Module
 version: 1
-prev_section: /disambiguation-module/v1/
 permalink: /query-generation-module/v1/
-next_section: /answer-generation-module/v1/
 ---
 
 A query generation module is responsible for generating SPARQL queries based on the outputs of preceding two modules, a template generation and a disambiguation modules. 

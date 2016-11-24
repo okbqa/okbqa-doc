@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: doc
 title: Answer Generation Module
 version: 1
-prev_section: /query-generation-module/v1/
 permalink: /answer-generation-module/v1/
-next_section: /control-module/v2/
 ---
 
 An answer generation module takes knowledge base addresses as an input from query control module. This module checks every queries on every input knowledge bases, and then gets and returns the final answers of the question.

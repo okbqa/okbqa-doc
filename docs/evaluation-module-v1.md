@@ -1,8 +1,7 @@
 ---
-layout: docs
+layout: doc
 title: Evaluation Module
 version: 1
-prev_section: /control-module/v2/
 permalink: /evaluation-module/v1/
 ---
 

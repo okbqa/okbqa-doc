@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: doc
 title: Control Module
 version: 1
-prev_section: /answer-generation-module/v1/
 permalink: /control-module/v1/
-next_section: /evaluation-module/v1/
 ---
 
 A control module takes an question, language, and addresses of modules as an input, and then transfers input and output of all modules (template generation modules, disambiguation modules, query generation modules, answer generation modules, and knowledge bases) sequentially, and then returns final answers of the input question. This module allows users to configure multiple addresses of each module by setting the "conf" field of the input. The progress (return values, errors, and so on) of each module will be notified by "log" field of the output.

@@ -1,9 +1,8 @@
 ---
-layout: docs
+layout: doc
 title: OKBQA Framework Overview
 version: 1
 permalink: /overview/v1/
-next_section: /template-generation-module/v1/
 ---
 
 One of the initial goals of the OKBQA collaboration was to devise a preliminary instantiation of a generic architecture for question answering on Linked Data. In the following, we begin by presenting key requirements to the architecture. We then present the architecture itself and describe the functionality of each of its module. We include preliminary implementations and identify components that must still be implemented. Finally, we describe our approach to evaluate our system.
@@ -32,4 +31,5 @@ Overall, 8 modules were specified as integral parts of the QA process.
   * Input Guide module (IGM): A IGM may interact with a user to help or control the input questions.
   * Rendering module (RM): A RM may render the raw answers, a list of URIs or literals, to make them easier to read.
 
-The figure below illustrates the archtecture of the OKBQA framework:
+The figure below illustrates the components of OKBQA Framework:
+![Components of OKBQA Framework]({{site.baseurl}}/img/okbqa-components.png)

@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: doc
 title: Template Generation Module
 version: 1
-prev_section: /overview/v1/
 permalink: /template-generation-module/v1/
-next_section: /disambiguation-module/v1/
 ---
 
 A Template Generation module is supposed to take in a natural language query, and to produce what we call pseudo queries. A pseudo query determines the structure of a SPARQL query which may represent the input query. At this stage, query entities are extracted from the natural language query, and a SPARQL structure is constructed using them. While resolution of the entities to URIs will be performed by the following module, a Disambiguation module, construction of the scaffold of SPARQL query, and delivery of structurized information about the query entities are the responsibility of a Template Generation module.
