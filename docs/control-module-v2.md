@@ -12,6 +12,7 @@ A control module (CM) is a module that links all of the I/Os of OKBQA modules an
 - A configurable sequence of module execution
 - A configurable time limitation of executing each module
 - Enhanced contents of log messages
+- I/O specification
 - Also refer to http://4.okbqa.org/development/documentation/controller
 
 ## I/O specification:
