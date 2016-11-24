@@ -8,11 +8,11 @@ permalink: /control-module/v2/
 
 A control module (CM) is a module that links all of the I/Os of OKBQA modules and constructs and realizes an OKBQA pipeline to be work. A controller has a role of a pipeline constructor as well as a debugger for validating the result of a pipeline. CM works as follows: Initially, CM takes a question and language of that question as an input, and then executes an initial module on a pipeline, typically template generation module. Then, CM sequentially executes next modules of an initial module, typically, disambiguation module, query generation module, answer generation module, by transferring the output of a previous module into the input of a right next module. As a pipeline is executed, log messages are written, which are about I/Os, execution time, exceptional messages, and so on of each module. After a final result, typically answers of an input question, is obtained, CM returns the final answers and log messages that record the history of a pipeline execution.
 
-## Main changes: 
-- A configurable sequence of module execution
+## Main changes over the previous version: 
+- A configurable sequence of module execution: Any a number of modules can be executed (even just with one module).
 - A configurable time limitation of executing each module
-- Enhanced contents of log messages
-- I/O specification
+- Enhanced contents of log messages: Information that is useful for debugging (e.g., exceptional messages, execution time of each module, and so on) is added.
+- I/O specification: refer to the I/O specification section below.
 - Also refer to http://4.okbqa.org/development/documentation/controller
 
 ## I/O specification:
