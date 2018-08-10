@@ -6,14 +6,13 @@ prev_version: /control-module/v1/
 permalink: /control-module/v2/
 ---
 
-A control module (CM) is a module that links all of the I/Os of OKBQA modules and constructs and realizes an OKBQA pipeline to be work. A controller has a role of a pipeline constructor as well as a debugger for validating the result of a pipeline. CM works as follows: Initially, CM takes a question and language of that question as an input, and then executes an initial module on a pipeline, typically template generation module. Then, CM sequentially executes next modules of an initial module, typically, disambiguation module, query generation module, answer generation module, by transferring the output of a previous module into the input of a right next module. As a pipeline is executed, log messages are written, which are about I/Os, execution time, exceptional messages, and so on of each module. After a final result, typically answers of an input question, is obtained, CM returns the final answers and log messages that record the history of a pipeline execution.
+A control module is a module to link all of the QA modules to construct an OKBQA pipeline for answering a question, as well as a debugger for validating the result of each module and entire pipeline. 
 
-## Main changes over the previous version: 
-- A configurable sequence of module execution: Any a number of modules can be executed (even just with one module).
-- A configurable time limitation of executing each module
-- Enhanced contents of log messages: Information that is useful for debugging (e.g., exceptional messages, execution time of each module, and so on) is added.
-- I/O specification: refer to the I/O specification section below.
-- Also refer to http://4.okbqa.org/development/documentation/controller
+The workflow of the controller is as follows:
+* Initially, the controller takes a question and written language as an input, and then executes a first module specified in the "conf" field in an input (If it is not given in the "conf" field, a template generation module will be a first module). 
+* Then, CM executes following modules sequentially (according to "sequence" field in an input) by transferring the parsed output of a previous module into the input of the following module. 
+* During the pipeline is executed by the controller, log messages on module I/Os, execution times, exceptions, and so on are accumulated and returned to users to check whether a pipeline works well or not.
+* After all of the modules are executed by the controller, it returns the final results (answers for a input question) and log messages recording the history of the execution.
 
 ## I/O specification:
 # Input
@@ -26,38 +25,39 @@ A control module (CM) is a module that links all of the I/Os of OKBQA modules an
     },
     "conf": {
         "address": {
-            "TGM": ["TGM-ADD-1", "TGM-ADD-1", ..., "TGM-ADD-a"],
-            "DM": ["DM-ADD-1", "DM-ADD-2", ..., "DM-ADD-b"],
-            "QGM": ["QGM-ADD-1", "QGM-ADD-2", ..., "QGM-ADD-c"],
-            "AGM": ["AGM-ADD-1", "AGM-ADD-2", ..., "AGM-ADD-d"],
-            "KB": [["KB-ADD-1", "GURI-1"], ["KB-ADD-2", "GURI-2"], ..., ["KB-ADD-e", "GURI-e"]]
+            "TGM": ["TGM-ADD(1)", "TGM-ADD(2)", ..., "TGM-ADD(n1)"],
+            "DM": ["DM-ADD(1)", "DM-ADD(2)", ..., "DM-ADD(n2)"],
+            "QGM": ["QGM-ADD(1)", "QGM-ADD(2)", ..., "QGM-ADD(n3)"],
+            "AGM": ["AGM-ADD(1)", "AGM-ADD(2)", ..., "AGM-ADD(n4)"],
+            "KB": [["KB-ADD(1)", "GIRI(1)"], ["KB-ADD(2)", "GIRI(2)"], ..., ["KB-ADD(n5)", "GIRI(n5)"]]
         },
-        "sequence": ["QGM", "DM", "QGM", "AGM"],
-        "timelimit": 10000    
+        "sequence": ["TGM", "DM", "QGM", "AGM"],
+        "timelimit": 10000   
     }
 }
 ```
-* ADD: address
-* TGM: template generation module
-* DM: disambiguation module
-* QGM: query generation module
-* AGM: answer generation module
-* KB: knowledge base
-* GURI: graph URI
+* ADD: Address
+* TGM: Template Generation Module
+* DM: Disambiguation Module
+* QGM: Query Generation Module
+* AGM: Answer Generation Module
+* KB: Knowledge Base
+* GURI: Graph IRI
+* timelimit: Upper time (seconds) limitation for executing each module
 
 # Output
 
 ```JSON
 {
-    "log": ["L-1", "L-2", ..., "L-f"],
+    "log": ["L(1)", "L(2)", ..., "L(n1)"],
     "result": [
-        {"query": "Q-1", "answer": "A-1"},
-        {"query": "Q-2", "answer": "A-2"},
+        {"query": "Q(1)", "answer": "A(1)"},
+        {"query": "Q(2)", "answer": "A(2)"},
         ...
-        {"query": "Q-g", "answer": "A-h"}
+        {"query": "Q(n2)", "answer": "A(n2)"}
     ]
 }
 ```
-* L: log
-* Q: query
-* A: answer
+* L: Log message
+* Q: SPARQL query
+* A: RDF triples retrieved by a given query
