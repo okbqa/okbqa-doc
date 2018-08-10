@@ -42,7 +42,8 @@ The workflow of the controller is as follows:
 * QGM: Query Generation Module
 * AGM: Answer Generation Module
 * KB: Knowledge Base
-* GURI: Graph IRI
+* GIRI: Graph IRI
+* sequence: Execution order of modules
 * timelimit: Upper time limitation in seconds for executing each module
 
 # Output
@@ -60,4 +61,4 @@ The workflow of the controller is as follows:
 ```
 * L: Log message
 * Q: SPARQL query
-* A: RDF triples retrieved by a given query
+* A: An RDF triple retrieved by a given query
