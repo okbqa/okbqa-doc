@@ -43,7 +43,7 @@ The workflow of the controller is as follows:
 * AGM: Answer Generation Module
 * KB: Knowledge Base
 * GURI: Graph IRI
-* timelimit: Upper time (seconds) limitation for executing each module
+* timelimit: Upper time limitation in seconds for executing each module
 
 # Output
 
